@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { FriendsPage } from './pages/FriendsPage.js';
+import { FriendDetailPage } from './pages/FriendDetailPage.js';
+import { UserProfilePage } from './pages/UserProfilePage.js';
+import { NewFriendPage } from './pages/NewFriendPage.js';
+import { NavBar } from './components/NavBar.js';
+import { FavoritesProvider } from './components/FavoritesProvider.js';
+import { FriendsProvider } from './components/FriendsProvider.js';
 
-function App() {
+export const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+    <NavBar />
+    <FavoritesProvider>
+      <FriendsProvider>
+        <div className={styles.contentContainer}>
+          <Routes>
+            <Route exact path="/" element={<FriendsPage />} />
+            <Route exact path="/friends/:friendId" element={<FriendDetailPage />} />
+            <Route exact path="/user-profile" element={<UserProfilePage />} />
+            <Route exect path="/add-friend" element={<NewFriendPage />} />
+          </Routes>
+        </div>
+      </FriendsProvider>
+    </FavoritesProvider>
+    </BrowserRouter>
+    </>
   );
-}
 
-export default App;
+}

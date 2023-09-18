@@ -1,0 +1,10 @@
+.peopleList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.peopleListItems {
+  box-sizing: border-box;
+  padding: 8px;
+  width: 50%;
+}

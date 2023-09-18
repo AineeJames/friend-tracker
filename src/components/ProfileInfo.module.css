@@ -1,0 +1,28 @@
+.detailHeading {
+  border-bottom: 1px dotted #ccc; /* give a slight underline */
+}
+
+/* center profile pic in its container */
+.profilePicContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.profilePicWrap {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden; /* allows rounding of image */
+  background-color: black; /* show black instead of transparency */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.profilePic {
+  width: 100%; /* fully fill the profile pic container */
+}
+
+.actionButton {
+  width: 100%;
+  margin-top: 16px;
+}

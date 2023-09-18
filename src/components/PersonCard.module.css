@@ -1,0 +1,47 @@
+.cardNorm {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.cardFave {
+  border: 2px solid #ccc;
+  background-color: #efe;
+  border-radius: 8px;
+  display: flex;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.profilePicLeft {
+  align-items: center;
+  flex: 1;
+  display: flex;
+}
+
+.profilePicWrap {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: black;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.profilePic {
+  width: 100%;
+}
+
+.cardDetails {
+  flex: 1;
+}
+
+.actionButton {
+  width: 100%;
+}
+
+.detailsContainer {
+  display: flex;
+}
