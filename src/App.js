@@ -1,5 +1,5 @@
 import styles from './App.module.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { FriendsPage } from './pages/FriendsPage.js';
 import { FriendDetailPage } from './pages/FriendDetailPage.js';
 import { UserProfilePage } from './pages/UserProfilePage.js';
@@ -12,21 +12,21 @@ export const App = () => {
 
   return (
     <>
-    <BrowserRouter>
+    <HashRouter>
     <NavBar />
     <FavoritesProvider>
       <FriendsProvider>
         <div className={styles.contentContainer}>
           <Routes>
-            <Route exact path="/" element={<FriendsPage />} />
-            <Route exact path="/friends/:friendId" element={<FriendDetailPage />} />
-            <Route exact path="/user-profile" element={<UserProfilePage />} />
-            <Route exect path="/add-friend" element={<NewFriendPage />} />
+            <Route path="/" element={<FriendsPage />} />
+            <Route path="/friends/:friendId" element={<FriendDetailPage />} />
+            <Route path="/user-profile" element={<UserProfilePage />} />
+            <Route path="/add-friend" element={<NewFriendPage />} />
           </Routes>
         </div>
       </FriendsProvider>
     </FavoritesProvider>
-    </BrowserRouter>
+    </HashRouter>
     </>
   );
 
