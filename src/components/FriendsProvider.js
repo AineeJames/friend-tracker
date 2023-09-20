@@ -13,9 +13,21 @@ const FriendsProvider = ({ children }) => {
     localStorage.setItem("friends", JSON.stringify(newFriends));
   };
 
+  const updateFriend = (updatedInfo) => {
+    const updatedFriends = friends.map(friend => {
+      if (friend.id === updatedInfo.id) {
+        return updatedInfo;
+      }
+      return friend;
+    });
+
+    setFriends(updatedFriends);
+    localStorage.setItem("friends", JSON.stringify(updatedFriends));
+  };
+
   return (
     <>
-    <FriendsContext.Provider value={{ friends, addFriend }}>
+    <FriendsContext.Provider value={{ friends, addFriend, updateFriend }}>
       {children}
     </FriendsContext.Provider>
     </>

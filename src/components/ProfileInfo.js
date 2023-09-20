@@ -4,8 +4,7 @@ import { Tag } from "./Tag.js";
 
 const ProfileInfo = ({
   person: { profilePicUrl, name, age, bio, birthdate, interests },
-  actionName,
-  onAction
+  actions = [],
 }) => {
   
   return (
@@ -29,7 +28,12 @@ const ProfileInfo = ({
     <p>{birthdate}</p>
     <h3 className={styles.detailHeading}>Interests</h3>
     {interests.map(interest => <Tag key={interest} text={interest} />)}
-    {actionName && onAction && <button className={styles.actionButton} onClick={onAction}>{actionName}</button>}
+    {actions.map(action => (
+      <button 
+        key={action.actionName} 
+        className={styles.actionButton} 
+        onClick={action.handler}>{action.actionName}</button>
+    ))}
     </>
   );
 
@@ -39,7 +43,7 @@ ProfileInfo.propTypes = {
   person: PropTypes.shape({
     profilePicUrl: PropTypes.string,
     name: PropTypes.string.isRequired,
-    age: PropTypes.number,
+    age: PropTypes.string,
     bio: PropTypes.string,
     birthdate: PropTypes.string,
     interests: PropTypes.arrayOf(PropTypes.string).isRequired,
